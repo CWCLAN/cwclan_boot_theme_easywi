@@ -1,0 +1,628 @@
+/*!
+ * CWClan HTML5 Theme for PHP-Fusion
+ * Version: 1.0
+ * Copyright 2013 CWClan
+ * Homepage: http://www.cwclan.de
+ * made by ununseptium@github and globeFrEak@github
+ */
+/*!responsvie.css*/
+@media only screen and (min-width:950px){.wrapper{min-width:900px;max-width:1600px;width:85%}.content{width:77%;margin-left:2%;margin-right:2%;float:right;border-left:solid thin #555;border-right:solid thin #555;box-shadow:0 0 5px #555}.sidebar{width:15%;float:left;margin-left:2%}.nav-collapse ul{padding-left:-1px;padding-right:0;padding-top:0;padding-bottom:0}.nav li ul li:first-child a{border-top-left-radius:5px;border-top-right-radius:5px}.nav li ul li:last-child a{border-bottom-left-radius:5px;border-bottom-right-radius:5px}.topbar .login{float:right;margin-right:10%}.topbar .login input[type=text],input[type=password]{margin-top:0}.no-mobile,.no-tabletbook{visibility:visible}.no-pc{visibility:hidden;display:none}.show-mobile,.show-tabletbook{visibility:hidden}.show-pc{visibility:visible}}@media only screen and (min-width:480px) and (max-width:950px){.wrapper{min-width:75%;width:75%}.content{width:95%;margin-left:auto;margin-right:auto;float:none;border-left:solid thin #555;border-right:solid thin #555;box-shadow:0 0 5px #555}.sidebar{width:96%;float:none;margin-left:auto;margin-right:auto}.nav-collapse ul{padding:5px 0}.nav li ul li:first-child a,.nav li ul li:last-child a{border-radius:3px}.topbar .login input[type=text],input[type=password]{margin-top:0}.no-mobile{visibility:visible}.no-tabletbook{visibility:hidden;display:none}.no-pc{visibility:visible}.show-mobile{visibility:hidden}.show-tabletbook{visibility:visible}.show-pc{visibility:hidden}}@media only screen and (max-width:480px){.wrapper{min-width:98%;width:98%}.content{box-shadow:0 0 0 #fff;width:95%;margin-left:auto;margin-right:auto;float:none;border-left:0;border-right:0}.sidebar{width:96%;float:none;margin-left:auto;margin-right:auto}.nav-collapse ul{padding:5px 0}.nav li ul li:first-child a,.nav li ul li:last-child a{border-radius:3px}.topbar .login input[type=text],input[type=password]{margin-top:0}.no-mobile{visibility:hidden;display:none}.no-pc,.no-tabletbook,.show-mobile{visibility:visible}.show-pc,.show-tabletbook{visibility:hidden}}.col-md-4{position:static}
+@media (max-width: 767px){body {padding-left: 0;padding-right: 0;}}
+/*!php-fu.css*/
+.tbl-border{width:100%}.btn{text-decoration:none;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;font-size:14px;font-weight:300;border-radius:3px;border:0;border-bottom:solid 3px #c67d55;box-shadow:none;cursor:pointer;vertical-align:middle;color:#eee;background:#ef9849;text-shadow:0 1px 1px #eee;display:inline-block;padding:5px 10px;margin:5px;outline-style:none;-moz-outline-style:none}.btn-forum{padding:2px 5px;margin:2px}.navbar .cw-form-control{width:49%}.navbar-nav>li>.dropdown-menu{margin-top:-1px;margin-left:-1px}
+
+/*!
+ * CWClan HTML5 Theme for PHP-Fusion
+ * Version: 0.2
+ *
+ * Copyright 2013 CWClan
+ * Licensed -/-
+ * 
+ * Homepage: http://www.cwclan.de
+ * Source: https://github.com/ununseptium/cwclan-html5-newish
+ * 
+ * made by ununseptium@github and globeFrEak@github
+ */
+
+/***/
+/*** Globals & Helpers ***/
+/***/
+body {
+    background:url('../cwclan_boot/img/design/bgr.jpg');
+    font-weight:300;
+    font-size: 14px;
+}
+::selection {
+    background: #ef9849;
+    color: #fff;
+}
+.tp {
+    font-family: 'Roboto', sans-serif;
+}
+a {
+    color:#ef9849;
+}
+a:hover {
+    color:#ef9849;
+}
+.clearfix:before,.clearfix:after{
+    content:" ";display:table;
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}
+.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1,h2,h3,h4,h5,h6,.forum-caption, .photo_title {
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 0 0 2px #ccc;
+}
+p {
+    color: #333;
+    line-height: 1.4;
+}
+img {    
+    max-width: 100%; 
+}
+hr {
+    margin-top: auto;
+    margin-bottom: auto;
+    border-top: thin solid #ccc;
+}
+textarea {
+    width: 100%;
+}
+table {
+    background: #fff;
+}
+.small{
+    font-size: 12px;
+}
+.mid{
+    font-size: 20px;
+}
+.large{
+    font-size: 36px;
+}
+.c_orange {
+    color: #ef9849;
+}
+.overflow-scroll {
+    overflow: auto;
+}
+.button, button, input[type=submit], input[type=button], .pagenav a {
+    text-decoration: none;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 3px;
+    border: none;
+    border-bottom: solid 3px #c67d55;
+    box-shadow: none;
+    cursor: pointer;
+    text-shadow: 0px 1px 1px #fff;
+    vertical-align: middle;
+    color: #eee;
+    background: #ef9849;
+    text-shadow: 0px 1px 1px #eee;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    outline-style: none; -moz-outline-style:none;
+}
+.button:hover, button:hover, input[type=submit]:hover, input[type=button]:hover, .pagenav a:hover {
+    border-color: #c47850;
+    color: ivory;
+}
+.input-append button.btn.btn-primary, .input-prepend.input-append button.btn.btn-primary {
+    margin: 0;
+}
+.huge {
+    font-size: 60px;
+    padding: 45px 70px;
+    border-bottom: 5px solid #d9d9d9;
+}
+.button:active:after, button:active, input[type=submit]:active, input[type=button]:active {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -o-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    -ms-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+.form-control {
+    width: 60px;
+    height: auto;
+}
+input[type=text],input[type=password] {
+    border: solid thin #ddd;
+    padding: 3px 5px;
+}
+form[name=userform] div a img, form[name=inputform] div a img {
+    width: initial;
+    padding: initial;
+}
+.quote, .spoiler-main {
+    background: #fff;
+    border: solid thin #ccc;
+    -webkit-box-shadow: 0 1px 1px #eee, inset 0 0 5px rgba(0, 0, 0, 0.125); 
+    -moz-box-shadow: 0 1px 1px #eee, inset 0 0 5px rgba(0, 0, 0, 0.125); 
+    -o-box-shadow: 0 1px 1px #eee, inset 0 0 5px rgba(0, 0, 0, 0.125); 
+    -ms-box-shadow: 0 1px 1px #eee, inset 0 0 5px rgba(0, 0, 0, 0.125); 
+    box-shadow: 0 1px 1px #eee, inset 0 0 5px rgba(0, 0, 0, 0.125); 
+    font-size: 11px;    
+    margin: 5px 10px;
+    padding: 4px
+}
+#cw_logo {
+    margin-left: 10%;
+}
+/*** Layout ***/
+.content .row.news{
+    margin: 0;
+}
+    span.info-badges {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.topbar {
+    left:0;
+    top:0;
+    position: fixed;
+    z-index:99;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+    background: #efebdf;
+    background: rgba(239, 235, 223, 0.8);
+    -webkit-box-shadow: 0 0 8px #888;
+    -moz-box-shadow: 0 0 8px #888;
+    -o-box-shadow: 0 0 8px #888;
+    -ms-box-shadow: 0 0 8px #888;
+    box-shadow: 0 0 8px #888;
+    font-family: 'Roboto Condensed',sans-serif;
+    border-bottom: solid thin #ccc;    
+    font-size: 21px;
+    position: relative;
+    z-index: 96;    
+}
+.topbar .title {
+    margin-left: 13%;
+    color: #ababab;
+    line-height: 48px;
+    font-size: 28px;
+    float:left;
+    font-weight:400;
+    text-shadow: 0 0 2px #ccc;
+}
+.topbar .subtitle {
+    color: #ef9849;
+    line-height: 38px;
+    font-size: 18px;
+    font-weight:400;
+    text-shadow: 0 0 2px #ccc;
+}
+.logged_in_box .user_avatar {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    margin: 4px 4px 4px 10px;
+}
+.user_avatar img {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #888;
+    -moz-box-shadow: 0 1px 2px #888;
+    -o-box-shadow: 0 1px 2px #888;
+    -ms-box-shadow: 0 1px 2px #888;
+    box-shadow: 0 1px 2px #888;
+    border:solid thin #666;
+}
+.logged_in_box .user_login_content {
+    float: right;
+    font-size: 14px;    
+}
+.logged_in_box .user_login_content .user_login_icons {
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff;
+}
+.logged_in_box .user_login_content .user_login_icons .tp {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.logged_in_box .user_login_content .user_login_icons a:link, .logged_in_box .user_login_content .user_login_icons a:visited {
+    color: #fff;
+}
+.logged_in_box .user_login_content .user_login_icons a:focus,.logged_in_box .user_login_content .user_login_icons a:hover, .icon-download2:hover, .icon-download2:focus {
+    color: #ef9849;
+    text-decoration: none;
+}
+.logged_in_box{
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.logged_in_box>.btn {
+    margin: 2px;
+}
+.icon-download2.dropdown-toggle.cwtooltip {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0 2px 0 2px;
+}
+#dropSubmit .dropdown-menu {
+    top: 28px;
+    left: initial;
+    right: 0;
+    background-color: #444;    
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-top: none;
+    border-radius: 0px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -o-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    -ms-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    background-clip: padding-box;
+}
+@-webkit-keyframes pulse_animation {
+    0% {color:#fff;}	
+    50% {color:#ef9849; }	
+    100% {color:#fff;}
+}
+@-moz-keyframes pulse_animation {
+    0% {color:#fff;}	
+    50% {color:#ef9849; }	
+    100% {color:#fff;}
+}
+.wrapper{    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 0 10px #777;
+    -moz-box-shadow: 0 0 10px #777;
+    -o-box-shadow: 0 0 10px #777;
+    -ms-box-shadow: 0 0 10px #777;
+    box-shadow: 0 0 10px #777;
+    background:url('../cwclan_boot/img/design/bg_content.jpg');
+    border-radius: 3px;
+}
+.sidebar, .sidepanel {
+    min-height: 200px;
+    border-top-left-radius: 4px;
+}
+.sidebar ul, .sidepanel ul {
+    list-style:none;
+}
+.sidebar .box, .accordion .accordion-group{
+	border: none;
+    margin-top: 10px;    
+}
+.sidebar .box h3, .accordion .accordion-group .accordion-heading{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12px;
+    color: #efefef;
+    text-shadow: 1px 1px 1px #333;
+    font-weight: 300;
+    padding: 0px 10px;
+    line-height:1.7;
+    background: #444;
+    margin:0;
+    border-radius: 4px;    
+    border-left: solid thin #444;
+    border-right: solid thin #444;
+    border-top: solid thin #444;
+    -webkit-box-shadow: 0 0 5px #555;
+    -moz-box-shadow: 0 0 5px #555;
+    -o-box-shadow: 0 0 5px #555;
+    -ms-box-shadow: 0 0 5px #555;
+    box-shadow: 0 0 5px #555;
+}
+.sidebar .box h3{    
+    font-size: 18px;    
+}
+.accordion-heading .accordion-toggle {
+    padding: 4px 4px;
+    font-size: 14px;
+}
+.accordion-inner .nav {
+    margin: 0;
+}
+.sidebar .box p,.sidebar .sidebar_div, .sidepanel .box p, .sidepanel .sidebar_div, .accordion-inner {
+    background: url('../cwclan_boot/img/design/agsquare.png');	
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 5px 10px;
+    margin: 0 10px 0 10px;   
+    font-size:13px;
+    -webkit-box-shadow: 0 0 5px #555;
+    -moz-box-shadow: 0 0 5px #555;
+    -o-box-shadow: 0 0 5px #555;
+    -ms-box-shadow: 0 0 5px #555;
+    box-shadow: 0 0 5px #555;
+}
+.sidebar .box .sidebar_div, .sidepanel .box .sidebar_div {
+    margin-bottom: 16px;
+}
+.sidebar_div ul {
+    margin:0;
+    padding:0;
+}
+.sidebar_div ul li {
+    margin: .3em 0;
+    padding: .3em .5em;    
+}
+.sidebar_div ul li:hover,.sidebar_div ul li:focus  {
+    border-radius: 4px;    
+    background: rgb(204, 204, 204);
+    background: rgba(204, 204, 204,.5);
+}
+.sidebar_div ul .active {
+    border-radius: 4px;    
+    background: rgb(204, 204, 204);
+    background: rgba(204, 204, 204,.5);   
+}
+.sidebar_div ul .active a{
+    color: #333;    
+}
+.content {
+    background: url('../cwclan_boot/img/design/agsquare.png');	
+    position: relative;
+    z-index:0;
+    min-height: 200px;
+    padding: 1px 6px;
+}
+footer {
+    position: relative;
+    z-index:5;
+    color: #efefef;
+    background: #444;
+    padding: 10px 15px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.breadcrumb_cw {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #efefef;
+    background: #444;
+    padding: 1px 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom:0;
+    font-weight:300;
+}
+.hero {
+    height: 200px;
+    width: 100%;
+    background:url('../cwclan_boot/img/specials/server.jpg') no-repeat #444;
+}
+.icons-vmid{
+    vertical-align: middle;
+}
+article {
+    padding: 0 5px 10px 5px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+article:last-child {
+    margin-bottom: 30px;
+}
+article h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    color: #ef9849;
+    line-height: 48px;
+    font-size: 26px;
+    margin:0 10px;
+}
+article p {
+    margin:0;
+    padding: 5px;
+}
+article .article_submenu {
+    font-size: 14px;
+    color: #333;
+    padding: 0 0 5px 7px;
+    margin: 0 5px;    
+    border-bottom: solid thin #ccc;
+}
+article .article_submenu .comments {
+    float: right;
+}
+article .article_submenu .author {    
+    float: left;
+}
+/*** Bootstrap Custom Navbar & Topbar ***/
+.topbar .login input[type=submit] {
+    margin-top: 0;
+}
+.navbar-toggle.icon-menu2{
+    padding: 5px 10px;
+    margin: 5px;
+    background: #ef9849;
+    border: none;
+    border-bottom: solid 3px #c67d55;
+    border-radius: 3px;
+}
+.navbar-toggle.icon-menu2:hover, .navbar-toggle.icon-menu2:focus {
+    background-color: #F5A65F;
+}
+.navbar {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size:  21px;
+    position: relative;
+    z-index: 96;
+    margin-bottom:0;
+}
+.navbar .navh4 {    
+    margin: 0 1em;
+    color: rgb(121, 121, 121);
+    color: rgba(121, 121, 121, 0.72);
+    line-height: 35px;
+    text-shadow: 0 0 5px #2C2C2C;
+}
+.navbar-form {
+    margin: auto;
+    padding: 5px 0 0 0;    
+}
+.navbar-form button, .navbar-form a {
+    margin: 0 0 0 2px;
+}
+.navbar-default {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    border: none;
+    min-height: 35px;
+    box-shadow: none;
+}
+.navbar-inverse {
+    background: #444;
+    font-weight: 300;
+    font-size:  15px;
+    min-height: 35px;
+    color: #efefef;
+    border: none;
+    border-radius: 0px;
+}
+.navbar .nav>li>a {
+    text-shadow: none;
+    color: #eee;
+}
+.navbar .nav>li>a:hover {
+    color: #eee;
+}
+.navbar .nav>li:hover {
+    background:none;
+}
+.navbar-inverse .btn-navbar {
+    background: #333;
+    margin-top: 3px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.navbar-inverse .btn-navbar:hover {
+    background: #222;
+}
+.navbar-collapse{
+    max-height: 450px;
+}
+#dropSubmit .dropdown-menu li a:hover,#dropSubmit .dropdown-menu li a:focus, .navbar-inverse .navbar-collapse .nav>li>a:hover, .navbar-inverse .navbar-collapse .nav>li>a:focus, .navbar-inverse .navbar-collapse .dropdown-menu a:hover, .navbar-inverse .navbar-collapse .dropdown-menu a:focus {
+    background: #ef9849;
+    color: #fff;
+}
+.nav li ul li:first-child a {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.nav li ul li:last-child a {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.nav li ul li a:hover {
+    color: #fff;
+}
+.navi_hint {
+    text-align: center;
+    padding-top: 4px;
+}
+.navi_hint a {
+    color: #fff;
+    margin-left:auto;
+    margin-top:auto;
+    text-align: center;
+}
+.navi_hint a:hover {
+    cursor: pointer;
+}
+.dropdown-menu > li > a {
+    padding: 7px 20px;
+    color: #ddd;
+}
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+/* Bootstrap 3 Custom Button */
+.btn-dark {
+    color: #fff;
+    background-color: #444;
+    border-color: #777;  
+}
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active,
+.btn-dark.active,
+.open .dropdown-toggle.btn-dark {
+    color: #ef9849;
+    background-color: #444;
+    border-color: #777;
+}
+.btn-dark:active,
+.btn-dark.active,
+.open .dropdown-toggle.btn-dark {
+    background-image: none;
+}
+.btn-dark.disabled,
+.btn-dark[disabled],
+fieldset[disabled] .btn-dark,
+.btn-dark.disabled:hover,
+.btn-dark[disabled]:hover,
+fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus,
+.btn-dark[disabled]:focus,
+fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled:active,
+.btn-dark[disabled]:active,
+fieldset[disabled] .btn-dark:active,
+.btn-dark.disabled.active,
+.btn-dark[disabled].active,
+fieldset[disabled] .btn-dark.active {
+    background-color: #444;
+    border-color: #777;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: rgba(239, 152, 73, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(239, 152, 73,.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(239, 152, 73,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(239, 152, 73,.6);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled],
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled], .btn:hover, .btn:focus{
+    background:#efa968;
+    color: #fff;
+}
+/**EASY WI**/
+.nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus{
+    background-color: #ccc;
+    background-color: rgba(204,204,204,.8);
+}
+.nav>li>a:hover, .nav>li>a:focus{
+    background-color: #ccc;
+    background-color: rgba(204,204,204,.5);
+}
+.breadcrumb li {
+    font-family: Oswald,sans-serif;
+    text-shadow: 0 0 2px #ccc;    
+    line-height: 1.1;
+    font-size: 16px;    
+}
